@@ -7,13 +7,29 @@
 var img = [];
 var i;
 var posicao = 0, tempoPos = 0;
-var velocAnim = 5;
+var velocAnim = 7;
     
 function preload() {
   img[0] = loadImage('Imagens/Frente0.png');
   img[1] = loadImage('Imagens/Frente1.png');
   img[2] = loadImage('Imagens/Frente2.png');
   img[3] = loadImage('Imagens/Frente3.png');
+  
+  img[4] = loadImage('Imagens/Direita0.png');
+  img[5] = loadImage('Imagens/Direita1.png');
+  img[6] = loadImage('Imagens/Direita2.png');
+  img[7] = loadImage('Imagens/Direita3.png');
+  
+  img[8] = loadImage('Imagens/Esquerda0.png');
+  img[9] = loadImage('Imagens/Esquerda1.png');
+  img[10] = loadImage('Imagens/Esquerda2.png');
+  img[11] = loadImage('Imagens/Esquerda3.png');
+  
+  img[12] = loadImage('Imagens/Trás0.png');
+  img[13] = loadImage('Imagens/Trás1.png');
+  img[14] = loadImage('Imagens/Trás2.png');
+  img[15] = loadImage('Imagens/Trás3.png');
+  
 }
     
 
@@ -34,7 +50,7 @@ function draw() {
   else
      tempoPos++;
   
-  if (posicao > 3)
+  if (posicao > 15)
      posicao = 0;
   
 }
