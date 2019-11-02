@@ -44,12 +44,12 @@ function preload() {                              //CARREGA AS IMAGENS DA SKIN E
     
 
 function setup() {
-//  createCanvas(650, 400);
-  alert ("Novo");
+  createCanvas(650, 400);
+  alert ("Novo1");
 }
 
 function draw() {
-//  background("White");
+  background("White");
   
   
   if (keyIsPressed == true)
@@ -78,12 +78,11 @@ function draw() {
       image (esquerda[posicao], x, y);
       x -= velocidade;
       break;
-  /*    
+      
     default:
-      direcao = 0;
       text ("Parado", x - 20, y - 30);
       break;
-  */    
+      
   }
   
   if (keyIsPressed == true){
@@ -95,8 +94,7 @@ function draw() {
     else
       tempoPos++;
   }
-  
-  
+   
   if (posicao > 4)
      posicao = 0;
   
