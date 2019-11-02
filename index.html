@@ -3,45 +3,20 @@
   <meta charset="UTF-8">
   <script src="js/p5.min.js"></script>
   <script>
-    var x = 0, y = 0, estado, velocidade = 3;
+    
+let img;
 
+    
+function preload() {
+  img = loadImage('Imagens/Teste2.png');
+}
+    
 function setup() {
-  createCanvas(650, 400);
-  
-  
+  background("White");
+  image (img, 0, 0);
 }
 
 function draw() {
-  background("white");
-  
-  if (keyIsPressed == true)
-    estado = key;
-  else
-    estado = 0;
- 
-  switch (estado){
-    case 'ArrowUp':
-      y -= velocidade;
-      break;
-      
-    case 'ArrowDown':
-      y += velocidade;
-      break;
-    
-    case 'ArrowRight':
-      x += velocidade;
-      break;
-      
-    case 'ArrowLeft':
-      x -= velocidade;
-      break;
-     
-  }
-  
-  
-  ellipse(x, y, 50, 50);
-  
-  
   
 }
 
