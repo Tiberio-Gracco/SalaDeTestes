@@ -7,7 +7,7 @@
 var img = [];
 var i;
 var posicao = 0, tempoPos = 0;
-
+var velocAnim = 10;
     
 function preload() {
   img[0] = loadImage('Imagens/Andar1.png');
@@ -27,14 +27,14 @@ function draw() {
   image (img[posicao], 0, 0);
   
   
-  if (tempoPos == 5){
+  if (tempoPos == velocAnim){
     posicao++;
     tempoPos = 0;
   }
   else
      tempoPos++;
   
-  if (posicao > 1)
+  if (posicao > 3)
      posicao = 0;
   
 }
