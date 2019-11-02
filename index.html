@@ -44,7 +44,7 @@ function preload() {                              //CARREGA AS IMAGENS DA SKIN E
     
 
 function setup() {
-  //createCanvas(650, 400);
+  createCanvas(650, 400);
 }
 
 function draw() {
@@ -60,31 +60,36 @@ function draw() {
   switch (estado){
     case 'ArrowUp':
       direcao = 1;
+      image (tras[posicao], x, y);
       y -= velocidade;
       break;
       
     case 'ArrowDown':
       direcao = 2;
+      image (frente[posicao], x, y);
       y += velocidade;
       break;
     
     case 'ArrowRight':
       direcao = 3;
+      image (direita[posicao], x, y);
       x += velocidade;
       break;
       
     case 'ArrowLeft':
       direcao = 4;
+      image (esquerda[posicao], x, y);
       x -= velocidade;
       break;
-      
+  /*    
     default:
       direcao = 0;
       text ("Parado", x - 20, y - 30);
       break;
+  */    
   }
   
-  
+  /*
   switch (direcao){
     case 1:
       image (tras[posicao], x, y);
@@ -102,7 +107,7 @@ function draw() {
       image (esquerda[posicao], x, y);
       break;
   }
-  
+  */
   
   if (tempoPos == velocAnim){
     posicao++;
