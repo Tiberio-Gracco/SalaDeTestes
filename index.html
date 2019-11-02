@@ -6,6 +6,7 @@
     
 var img = [];
 var i;
+var posicao = 0, tempoPos = 0;
 
     
 function preload() {
@@ -15,25 +16,27 @@ function preload() {
   img[3] = loadImage('Imagens/Andar4.png');
 }
     
-function sleep(milliseconds) {
-  var start = new Date().getTime();
-  for (var i = 0; i < 1e7; i++) {
-    if ((new Date().getTime() - start) > milliseconds){
-      break;
-    }
-  }
-    
+
 function setup() {
   alert ("Vamos Começar1");
-   for (i = 0; i <=1 ; i++){
-    background("White");
-    image (img[i], 0, 0);
-    sleep(500);
-    
-  }
 }
 
 function draw() {
+  background("White");
+  
+  image (img[posicao], 0, 0);
+  
+  
+  if (tempoPos == 5){
+    posicao++;
+    tempoPos = 0;
+  }
+  else
+     tempoPos++;
+  
+  if (posicao > 1)
+     posicao = 0;
+  
 }
 
 
