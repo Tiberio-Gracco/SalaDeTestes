@@ -49,8 +49,7 @@ function setup() {
 }
 
 function draw() {
-  background("White");
-    
+     
   if (keyIsPressed == true)
     estado = key;
   else
@@ -60,21 +59,25 @@ function draw() {
   switch (estado){
     case 'ArrowUp':
       y -= velocidade;
+      background("White");
       image (tras[posicao], x, y);
       break;
       
     case 'ArrowDown':
       y += velocidade;
+      background("White");
       image (frente[posicao], x, y);
       break;
     
     case 'ArrowRight':
       x += velocidade;
+      background("White");
       image (direita[posicao], x, y);
       break;
       
     case 'ArrowLeft':
       x -= velocidade;
+      background("White");
       image (esquerda[posicao], x, y);
       break;
       
