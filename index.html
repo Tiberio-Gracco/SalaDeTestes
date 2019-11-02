@@ -17,6 +17,8 @@ var direita = [];
 var esquerda = [];
 var tras = [];
     
+var chao;
+    
 
     
 function preload() {                              //CARREGA AS IMAGENS DA SKIN E SEPARA NAS DIFERENTES DIREÇÕES
@@ -40,6 +42,8 @@ function preload() {                              //CARREGA AS IMAGENS DA SKIN E
   tras[2] = loadImage('Imagens/Trás2.png');
   tras[3] = loadImage('Imagens/Trás3.png');
   
+  chao = loadImage ('Imagens/Chão do Jogo.png');
+  
 }
     
 
@@ -59,25 +63,25 @@ function draw() {
   switch (estado){
     case 'ArrowUp':
       y -= velocidade;
-      background("White");
+      background(chao);
       image (tras[posicao], x, y);
       break;
       
     case 'ArrowDown':
       y += velocidade;
-      background("White");
+      background(chao);
       image (frente[posicao], x, y);
       break;
     
     case 'ArrowRight':
       x += velocidade;
-      background("White");
+      background(chao);
       image (direita[posicao], x, y);
       break;
       
     case 'ArrowLeft':
       x -= velocidade;
-      background("White");
+      background(chao);
       image (esquerda[posicao], x, y);
       break;
       
