@@ -45,7 +45,7 @@ function preload() {                              //CARREGA AS IMAGENS DA SKIN E
 
 function setup() {
   createCanvas(650, 400);
-  alert ("Novo1");
+  alert ("Novo2");
 }
 
 function draw() {
@@ -60,30 +60,31 @@ function draw() {
   
   switch (estado){
     case 'ArrowUp':
-      image (tras[posicao], x, y);
       y -= velocidade;
+      image (tras[posicao], x, y);
       break;
       
     case 'ArrowDown':
-      image (frente[posicao], x, y);
       y += velocidade;
+      image (frente[posicao], x, y);
       break;
     
     case 'ArrowRight':
-      image (direita[posicao], x, y);
       x += velocidade;
+      image (direita[posicao], x, y);
       break;
       
     case 'ArrowLeft':
-      image (esquerda[posicao], x, y);
       x -= velocidade;
+      image (esquerda[posicao], x, y);
       break;
       
     default:
-      text ("Parado", x - 20, y - 30);
+      text ("Parado", 0, 0);
       break;
       
   }
+  
   
   if (keyIsPressed == true){
     
@@ -95,12 +96,12 @@ function draw() {
       tempoPos++;
   }
    
-  if (posicao > 4)
+  if (posicao > 4){
      posicao = 0;
+  }
   
 }
-
-
+   
   </script>
 
   <style> body {padding: 0; margin: 0;} </style>
