@@ -59,25 +59,21 @@ function draw() {
   
   switch (estado){
     case 'ArrowUp':
-      direcao = 1;
       image (tras[posicao], x, y);
       y -= velocidade;
       break;
       
     case 'ArrowDown':
-      direcao = 2;
       image (frente[posicao], x, y);
       y += velocidade;
       break;
     
     case 'ArrowRight':
-      direcao = 3;
       image (direita[posicao], x, y);
       x += velocidade;
       break;
       
     case 'ArrowLeft':
-      direcao = 4;
       image (esquerda[posicao], x, y);
       x -= velocidade;
       break;
@@ -89,32 +85,16 @@ function draw() {
   */    
   }
   
-  /*
-  switch (direcao){
-    case 1:
-      image (tras[posicao], x, y);
-      break;
-      
-    case 2:
-      image (frente[posicao], x, y);
-      break;
-      
-    case 3:
-      image (direita[posicao], x, y);
-      break;
-      
-    case 4:
-      image (esquerda[posicao], x, y);
-      break;
+  if (keyIsPressed == true){
+    
+    if (tempoPos == velocAnim){
+      posicao++;
+      tempoPos = 0;
+    }
+    else
+      tempoPos++;
   }
-  */
   
-  if (tempoPos == velocAnim){
-    posicao++;
-    tempoPos = 0;
-  }
-  else
-     tempoPos++;
   
   if (posicao > 4)
      posicao = 0;
