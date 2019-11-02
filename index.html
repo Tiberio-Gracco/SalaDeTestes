@@ -4,43 +4,104 @@
   <script src="js/p5.min.js"></script>
   <script>
     
-var img = [];
+var x = 0, y = 0, estado, velocidade = 3, direcao = 0;
+    
 var i;
 var posicao = 0, tempoPos = 0;
 var velocAnim = 7;
     
-function preload() {
-  img[0] = loadImage('Imagens/Frente0.png');
-  img[1] = loadImage('Imagens/Frente1.png');
-  img[2] = loadImage('Imagens/Frente2.png');
-  img[3] = loadImage('Imagens/Frente3.png');
+// var img = []; //Vetor onde vão ser salvas as imagens da skin com quatro objetos cada
+    
+var frente = [];
+var direita = [];
+var esquerda = [];
+var tras = [];
+    
+
+    
+function preload() {                              //CARREGA AS IMAGENS DA SKIN E SEPARA NAS DIFERENTES DIREÇÕES
+  frente[0] = loadImage('Imagens/Frente0.png');
+  frente[1] = loadImage('Imagens/Frente1.png');
+  frente[2] = loadImage('Imagens/Frente2.png');
+  frente[3] = loadImage('Imagens/Frente3.png');
   
-  img[4] = loadImage('Imagens/Direita0.png');
-  img[5] = loadImage('Imagens/Direita1.png');
-  img[6] = loadImage('Imagens/Direita2.png');
-  img[7] = loadImage('Imagens/Direita3.png');
+  direita[0] = loadImage('Imagens/Direita0.png');
+  direita[1] = loadImage('Imagens/Direita1.png');
+  direita[2] = loadImage('Imagens/Direita2.png');
+  direita[3] = loadImage('Imagens/Direita3.png');
   
-  img[8] = loadImage('Imagens/Esquerda0.png');
-  img[9] = loadImage('Imagens/Esquerda1.png');
-  img[10] = loadImage('Imagens/Esquerda2.png');
-  img[11] = loadImage('Imagens/Esquerda3.png');
+  esquerda[0] = loadImage('Imagens/Esquerda0.png');
+  esquerda[1] = loadImage('Imagens/Esquerda1.png');
+  esquerda[2] = loadImage('Imagens/Esquerda2.png');
+  esquerda[3] = loadImage('Imagens/Esquerda3.png');
   
-  img[12] = loadImage('Imagens/Trás0.png');
-  img[13] = loadImage('Imagens/Trás1.png');
-  img[14] = loadImage('Imagens/Trás2.png');
-  img[15] = loadImage('Imagens/Trás3.png');
+  tras[0] = loadImage('Imagens/Trás0.png');
+  tras[1] = loadImage('Imagens/Trás1.png');
+  tras[2] = loadImage('Imagens/Trás2.png');
+  tras[3] = loadImage('Imagens/Trás3.png');
   
 }
     
 
 function setup() {
-  alert ("Vamos Começar");
+  createCanvas(650, 400);
 }
 
 function draw() {
   background("White");
   
-  image (img[posicao], 0, 0);
+  
+  if (keyIsPressed == true)
+    estado = key;
+  else
+    estado = 0;
+ 
+  
+  switch (estado){
+    case 'ArrowUp':
+      direcao = 1;
+      y -= velocidade;
+      break;
+      
+    case 'ArrowDown':
+      direcao = 2;
+      y += velocidade;
+      break;
+    
+    case 'ArrowRight':
+      direcao = 3;
+      x += velocidade;
+      break;
+      
+    case 'ArrowLeft':
+      direcao = 4;
+      x -= velocidade;
+      break;
+      
+    default:
+      direcao = 0;
+      text ("Parado", x - 20, y - 30);
+      break;
+  }
+  
+  
+  switch (direcao){
+    case 1:
+      image (tras[posicao], x, y);
+      break;
+      
+    case 2:
+      image (frente[posicao], x, y);
+      break;
+      
+    case 3:
+      image (direita[posicao], x, y);
+      break;
+      
+    case 4:
+      image (esquerda[posicao], x, y);
+      break;
+  }
   
   
   if (tempoPos == velocAnim){
@@ -50,7 +111,7 @@ function draw() {
   else
      tempoPos++;
   
-  if (posicao > 15)
+  if (posicao > 4)
      posicao = 0;
   
 }
