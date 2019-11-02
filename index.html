@@ -1,25 +1,50 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <script src= "js/p5.min.js"></script>
+  <script src="js/p5.min.js"></script>
   <script>
-  
-var img;
-
-function preLoad(){
-  img = loadImage('Imagens/Teste2.png');
-}
+    var x = 0, y = 0, estado, velocidade = 3;
 
 function setup() {
-  createCanvas(400, 400);
+  createCanvas(650, 400);
+  
+  
 }
 
 function draw() {
-  image (img,0,0);
+  background("white");
+  
+  if (keyIsPressed == true)
+    estado = key;
+  else
+    estado = 0;
+ 
+  switch (estado){
+    case 'ArrowUp':
+      y -= velocidade;
+      break;
+      
+    case 'ArrowDown':
+      y += velocidade;
+      break;
+    
+    case 'ArrowRight':
+      x += velocidade;
+      break;
+      
+    case 'ArrowLeft':
+      x -= velocidade;
+      break;
+     
+  }
+  
+  
+  ellipse(x, y, 50, 50);
+  
+  
+  
 }
-  
-  
-  
+
   </script>
 
   <style> body {padding: 0; margin: 0;} </style>
@@ -28,4 +53,3 @@ function draw() {
 <body>
 </body>
 </html>
-
