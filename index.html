@@ -15,8 +15,16 @@ function preload() {
   img[3] = loadImage('Imagens/Andar4.png');
 }
     
+function sleep(milliseconds) {
+  var start = new Date().getTime();
+  for (var i = 0; i < 1e7; i++) {
+    if ((new Date().getTime() - start) > milliseconds){
+      break;
+    }
+  }
+    
 function setup() {
-  alert ("Vamos Começar");
+  alert ("Vamos Começar1");
    for (i = 0; i <=1 ; i++){
     background("White");
     image (img[i], 0, 0);
@@ -27,14 +35,6 @@ function setup() {
 
 function draw() {
 }
-    
-function sleep(milliseconds) {
-  var start = new Date().getTime();
-  for (var i = 0; i < 1e7; i++) {
-    if ((new Date().getTime() - start) > milliseconds){
-      break;
-    }
-  }
 
 
   </script>
