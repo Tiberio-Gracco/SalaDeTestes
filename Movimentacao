@@ -1,0 +1,80 @@
+/*
+//PLAYER
+var x1 = 0, y1 = 0; // coordenadas
+var comp1 = 100, larg1 = 100; //Tamanho
+
+//OBSTÁCULO
+var x2 = 0, y2 = 0; // coordenadas
+var comp2 = 100, larg2 = 100; //Tamanho
+
+var estado, deslocamento = 6;
+*/
+
+
+var x = 0, y = 0; //Player
+var x1 = 150, y1 = 100; //Obstáculo
+
+var estado, velocidade = 6;
+
+var tam0 = 20; // Tamanho do player
+var tam1 = 100; // Tamanho do obstáculo
+
+
+function setup() {
+  createCanvas(650, 400);
+
+  
+}
+function draw() {
+  background("White");
+  
+  rect (x1, y1, tam1, tam1); //Obstáculo
+  
+  if (keyIsPressed == true)
+    estado = key;
+  else
+    estado = 0;
+    
+    
+  switch (estado){
+    case 'ArrowUp':
+      if (colisao (x, y - velocidade, tam0, x1, y1, tam1) == false)
+        y -= velocidade;
+      break;
+      
+    case 'ArrowDown':
+      if (colisao (x, y + velocidade, tam0, x1, y1, tam1) == false)
+        y += velocidade;
+      break;
+    
+    case 'ArrowRight':
+      if (colisao (x + velocidade, y, tam0, x1, y1, tam1) == false)
+        x += velocidade;
+      break;
+      
+    case 'ArrowLeft':
+      if (colisao (x - velocidade, y, tam0, x1, y1, tam1) == false)
+        x -= velocidade;
+      break;
+  }
+    
+  
+  rect(x, y, tam0, tam0); //Player
+}
+
+
+
+
+function colisao(xa, ya, ta, xb, yb, tb){
+  if (xa + ta < xb) //A está a esquerda de B
+    return false;
+  if (xb < xa - tb) //A está a direita de B
+    return false;
+  if (ya - tb > yb) //A está embaixo de B
+    return false;
+  if (ya + ta < yb) //A está acima de B
+    return false;
+  
+  return true; //Se ele não entrar em nenhuma dessas 4 situações,
+               //então ele está colidindo
+}
