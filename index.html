@@ -4,23 +4,30 @@
   <script src="js/p5.min.js"></script>
   <script>
     
-var x = 0, y = 0, estado, velocidade = 3, direcao = 0;
-    
+//Dados do Botão 1
+var xBot = 50, yBot = 100;
+var compBot = 100, altBot = 50;
+
+//Dados do Botão 2
+var xBot2 = 200, yBot2 = 100;
+var compBot2 = 150, altBot2 = 50;
+
+//Dados do Botão 3
+var xBot3 = 125, yBot3 = 200;
+var compBot3 = 100, altBot3 = 50;
+
+
 var i;
 var posicao = 0, tempoPos = 0;
 var velocAnim = 7;
-    
-// var img = []; //Vetor onde vão ser salvas as imagens da skin com quatro objetos cada
-    
+var x = 0, y = 0, estado, velocidade = 3, direcao = 0;
+
 var frente = [];
 var direita = [];
 var esquerda = [];
 var tras = [];
-    
 var chao;
-    
 
-    
 function preload() {                              //CARREGA AS IMAGENS DA SKIN E SEPARA NAS DIFERENTES DIREÇÕES
   frente[0] = loadImage('Imagens/Frente0.png');
   frente[1] = loadImage('Imagens/Frente1.png');
@@ -45,68 +52,144 @@ function preload() {                              //CARREGA AS IMAGENS DA SKIN E
   chao = loadImage ('Imagens/Grama.jpg');
   
 }
-    
+
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
-  alert ("Novo3");
 }
 
 function draw() {
-     
-  if (keyIsPressed == true)
-    estado = key;
-  else
-    estado = 0;
- 
+  background(200);
   
-  switch (estado){
-    case 'ArrowUp':
-      y -= velocidade;
-      background(chao);
-      image (tras[posicao], x, y);
-      break;
-      
-    case 'ArrowDown':
-      y += velocidade;
-      background(chao);
-      image (frente[posicao], x, y);
-      break;
-    
-    case 'ArrowRight':
-      x += velocidade;
-      background(chao);
-      image (direita[posicao], x, y);
-      break;
-      
-    case 'ArrowLeft':
-      x -= velocidade;
-      background(chao);
-      image (esquerda[posicao], x, y);
-      break;
-      
-    default:
-      text ("Parado", 0, 0);
-      break;
-      
+  //Botão 1
+  fill ("white");
+  rect (xBot, yBot, compBot, altBot, 10);
+  fill ("blue");
+  text ("Iniciar", xBot + 15 , yBot + 30);
+  
+  //Botão 2
+  fill ("white");
+  rect (xBot2, yBot2, compBot2, altBot2, 10);
+  fill ("green");
+  text ("Configurações", xBot2 + 10 , yBot2 + 30);
+  
+  //Botão 3
+  fill ("white");
+  rect (xBot3, yBot3, compBot3, altBot3, 10);
+  fill ("red");
+  text ("Sair", xBot3 + 10 , yBot3 + 30);
+  
+}
+
+
+function mouseClicked(){
+  //Botão 1
+  if (colisao(xBot, yBot, compBot, altBot, mouseX, mouseY, 1, 1) == true){
+    primeiraFase();
   }
   
-  
-  if (keyIsPressed == true){
-    
-    if (tempoPos == velocAnim){
-      posicao++;
-      tempoPos = 0;
-    }
-    else
-      tempoPos++;
+  //Botão 2
+  if (colisao(xBot2, yBot2, compBot2, altBot2, mouseX, mouseY, 1, 1) == true){
+    configuracoes();
   }
-   
-  if (posicao > 3){
-     posicao = 0;
+  
+  //Botão 3
+  if (colisao(xBot3, yBot3, compBot3, altBot3, mouseX, mouseY, 1, 1) == true){
+    sair();
   }
   
 }
+
+    
+function colisao(xA, yA, compA, altA, xB, yB, compB, altB){
+  //Colisão entre dois objetos A e B.
+  //Entrar com as coordenadas (x e y) bem como o comprimento e altura de ambos.
+  
+  if (xA + compA < xB) //A está a esquerda de B
+    return false;
+  if (xB < xA - compB) //A está a direita de B
+    return false;
+  if (yA - altB > yB) //A está embaixo de B
+    return false;
+  if (yA + altA < yB) //A está acima de B
+    return false;
+  
+  return true; //Se ele não entrar em nenhuma dessas 4 situações,
+               //então ele está colidindo
+}
+
+
+function primeiraFase(){
+  while (true){
+    
+    if (keyIsPressed == true)
+      estado = key;
+    else
+      estado = 0;
+ 
+  
+    switch (estado){
+      case 'ArrowUp':
+        y -= velocidade;
+        background(chao);
+        image (tras[posicao], x, y);
+        break;
+      
+      case 'ArrowDown':
+        y += velocidade;
+        background(chao);
+        image (frente[posicao], x, y);
+        break;
+    
+      case 'ArrowRight':
+        x += velocidade;
+        background(chao);
+        image (direita[posicao], x, y);
+        break;
+      
+      case 'ArrowLeft':
+        x -= velocidade;
+        background(chao);
+        image (esquerda[posicao], x, y);
+        break;
+    }
+  
+    if (keyIsPressed == true){
+    
+      if (tempoPos == velocAnim){
+        posicao++;
+        tempoPos = 0;
+      }
+      else
+        tempoPos++;
+    }
+   
+    if (posicao > 3){
+      posicao = 0;
+    }
+  
+  }//While
+    
+}//primeiraFase()
+
+
+function configuracoes(){
+  while(true){
+    background ("white");
+    fill ("black");
+    text ("Configurações", 10, 10);
+  }
+}
+
+
+function sair(){
+  while (true){
+    background ("black");
+    alert ("Tem certeza que deseja sair?");
+  }
+}
+
+
    
   </script>
 
