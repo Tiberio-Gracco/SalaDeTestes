@@ -27,6 +27,8 @@ var direita = [];
 var esquerda = [];
 var tras = [];
 var chao;
+    
+var primeiraFase = 0;
 
 function preload() {                              //CARREGA AS IMAGENS DA SKIN E SEPARA NAS DIFERENTES DIREÇÕES
   frente[0] = loadImage('Imagens/Frente0.png');
@@ -78,51 +80,9 @@ function setup() {
   
 }
 
-//function draw() {
-//}
-
-
-function mouseClicked(){
-  //Botão 1
-  if (colisao(xBot, yBot, compBot, altBot, mouseX, mouseY, 1, 1) == true){
-    primeiraFase();
-  }
-  
-  //Botão 2
-  if (colisao(xBot2, yBot2, compBot2, altBot2, mouseX, mouseY, 1, 1) == true){
-    configuracoes();
-  }
-  
-  //Botão 3
-  if (colisao(xBot3, yBot3, compBot3, altBot3, mouseX, mouseY, 1, 1) == true){
-    sair();
-  }
-  
-}
-
-    
-function colisao(xA, yA, compA, altA, xB, yB, compB, altB){
-  //Colisão entre dois objetos A e B.
-  //Entrar com as coordenadas (x e y) bem como o comprimento e altura de ambos.
-  
-  if (xA + compA < xB) //A está a esquerda de B
-    return false;
-  if (xB < xA - compB) //A está a direita de B
-    return false;
-  if (yA - altB > yB) //A está embaixo de B
-    return false;
-  if (yA + altA < yB) //A está acima de B
-    return false;
-  
-  return true; //Se ele não entrar em nenhuma dessas 4 situações,
-               //então ele está colidindo
-}
-
-
-function primeiraFase(){
-  alert ("Primeira Fase");
-      
-    if (keyIsPressed == true)
+function draw(){
+  if (primeiraFase == 1){
+   if (keyIsPressed == true)
       estado = key;
     else
       estado = 0;
@@ -167,6 +127,52 @@ function primeiraFase(){
     if (posicao > 3){
       posicao = 0;
     }
+    
+  }//if
+}
+
+
+function mouseClicked(){
+  //Botão 1
+  if (colisao(xBot, yBot, compBot, altBot, mouseX, mouseY, 1, 1) == true){
+    primeiraFase++;
+  }
+  
+  //Botão 2
+  if (colisao(xBot2, yBot2, compBot2, altBot2, mouseX, mouseY, 1, 1) == true){
+    configuracoes();
+  }
+  
+  //Botão 3
+  if (colisao(xBot3, yBot3, compBot3, altBot3, mouseX, mouseY, 1, 1) == true){
+    sair();
+  }
+  
+}
+
+    
+function colisao(xA, yA, compA, altA, xB, yB, compB, altB){
+  //Colisão entre dois objetos A e B.
+  //Entrar com as coordenadas (x e y) bem como o comprimento e altura de ambos.
+  
+  if (xA + compA < xB) //A está a esquerda de B
+    return false;
+  if (xB < xA - compB) //A está a direita de B
+    return false;
+  if (yA - altB > yB) //A está embaixo de B
+    return false;
+  if (yA + altA < yB) //A está acima de B
+    return false;
+  
+  return true; //Se ele não entrar em nenhuma dessas 4 situações,
+               //então ele está colidindo
+}
+
+
+function primeiraFase(){
+  alert ("Primeira Fase");
+      
+    
   
     
 }//primeiraFase()
