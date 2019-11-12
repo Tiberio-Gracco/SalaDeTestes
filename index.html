@@ -120,6 +120,7 @@ function colisao(xA, yA, compA, altA, xB, yB, compB, altB){
 
 
 function primeiraFase(){
+  alert ("Primeira Fase");
   while (true){
     
     if (keyIsPressed == true)
@@ -174,19 +175,17 @@ function primeiraFase(){
 
 
 function configuracoes(){
-  while(true){
-    background ("white");
-    fill ("black");
-    text ("Configurações", 10, 10);
-  }
+  alert ("Configurações");
+  background ("white");
+  fill ("black");
+  text ("Configurações", 10, 10);
+  
 }
 
 
 function sair(){
-  while (true){
-    background ("black");
-    alert ("Tem certeza que deseja sair?");
-  }
+  background ("black");
+  alert ("Você vai sair do jogo"); //Tem certeza que deseja sair?
 }
 
 
