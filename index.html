@@ -82,7 +82,6 @@ function setup() {
 
 function draw(){
   if (primeiraFase == 1){
-   background(chao);
    if (keyIsPressed == true)
       estado = key;
     else
@@ -137,6 +136,7 @@ function mouseClicked(){
   //Botão 1
   if (colisao(xBot, yBot, compBot, altBot, mouseX, mouseY, 1, 1) == true){
     primeiraFase++;
+    background(chao);
   }
   
   //Botão 2
