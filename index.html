@@ -56,7 +56,7 @@ function preload() {                              //CARREGA AS IMAGENS DA SKIN E
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
-  background ("green");
+  background ("red");
   
   //Botão 1
   fill ("white");
@@ -121,8 +121,7 @@ function colisao(xA, yA, compA, altA, xB, yB, compB, altB){
 
 function primeiraFase(){
   alert ("Primeira Fase");
-  while (true){
-    
+      
     if (keyIsPressed == true)
       estado = key;
     else
@@ -169,7 +168,6 @@ function primeiraFase(){
       posicao = 0;
     }
   
-  }//While
     
 }//primeiraFase()
 
