@@ -8,17 +8,17 @@
 //Dados do Botão 1 (INICIAR)
 var xBot =  458, yBot = 300;
 var compBot = 449, altBot = 95;
-var B1;
+var B1, B1press;
     
 //Dados do Botão 2 (CONFIGURAÇÕES)
 var xBot2 = 458, yBot2 = 400;
 var compBot2 = 449, altBot2 = 95;
-var B2;
+var B2, B2press;
     
 //Dados do Botão 3 (SAIR)
 var xBot3 = 458, yBot3 = 500;
 var compBot3 = 449, altBot3 = 95;
-var B3;
+var B3, B3press;
     
 //Dados do Botão 4 (VOLTAR P/ O MENU)
 var xBot4 =  350, yBot4 = 400;
@@ -78,6 +78,10 @@ function preload() {                              //CARREGA AS IMAGENS DA SKIN E
   B2 = loadImage('Imagens/Botão - Configurações.png');
   B3 = loadImage('Imagens/Botão - Sair.png');
   
+  B1press = loadImage('Imagens/Botão - Novo Jogo(P).png');
+  B2press = loadImage('Imagens/Botão - Configurações(P).png');
+  B3press = loadImage('Imagens/Botão - Sair(P).png');
+  
 }
 
 
@@ -93,13 +97,22 @@ function draw(){
     background(imgFundo);
   
     //Botão 1
-    image(B1, xBot, yBot, compBot, altBot);
-  
+    if (colisao (xBot, yBot, compBot, altBot, mouseX, mouseY, 1,1))
+      image(B1press, xBot, yBot, compBot, altBot);
+    else
+      image(B1, xBot, yBot, compBot, altBot);
+    
     //Botão 2
-    image(B2, xBot2, yBot2, compBot2, altBot2);
+    if (colisao (xBot2, yBot2, compBot2, altBot2, mouseX, mouseY, 1,1))
+      image(B2press, xBot2, yBot2, compBot2, altBot2);
+    else
+      image(B2, xBot2, yBot2, compBot2, altBot2);
   
     //Botão 3
-    image(B3, xBot3, yBot3, compBot3, altBot3);
+    if (colisao (xBot3, yBot3, compBot3, altBot3, mouseX, mouseY, 1,1))
+      image(B3press, xBot3, yBot3, compBot3, altBot3);
+    else
+      image(B3, xBot3, yBot3, compBot3, altBot3);
   }
   
   if (tela[1] == true){//Está nas configurações
