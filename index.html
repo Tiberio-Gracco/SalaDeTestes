@@ -25,11 +25,11 @@ var xBot4 =  350, yBot4 = 400;
 var compBot4 = 100, altBot4 = 50;
     
 //Dados do Botão 5 (ACEITAR)
-var xBot5 =  125, yBot5 = 250;
+var xBot5 =  558, yBot5 = 568;
 var compBot5 = 100, altBot5 = 50;
     
 //Dados do Botão 6 (RECUSAR)
-var xBot6 =  275, yBot6 = 250;
+var xBot6 =  708, yBot6 = 568;
 var compBot6 = 100, altBot6 = 50;
     
 var tela = []; //Vetor que coordena as telas
@@ -127,13 +127,13 @@ function draw(){
   }
   
   if (tela[2] == true){//Está saindo do jogo
-    background ("white");
+    background (imgFundo);
     fill ("gray");
     rect (85, 160, 330, 160, 5);
   
     fill ("White");
     textFont ("TimesNewRoman",25);
-    text ("Tem certeza que deseja sair?", 110, 220);
+    text ("Tem certeza que deseja sair?", 543, 388);
   
     //Botão 5
     fill ("green");
