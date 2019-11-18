@@ -48,6 +48,7 @@ var direita = [];
 var esquerda = [];
 var tras = [];
 var chao;
+var imgFundo;
 
 function preload() {                              //CARREGA AS IMAGENS DA SKIN E SEPARA NAS DIFERENTES DIREÇÕES
   frente[0] = loadImage('Imagens/Frente0.png');
@@ -71,6 +72,7 @@ function preload() {                              //CARREGA AS IMAGENS DA SKIN E
   tras[3] = loadImage('Imagens/Trás3.png');
   
   chao = loadImage ('Imagens/Grama.jpg');
+  imgFundo = loadImage ('Imagens/Fundação de São Vicente.jpg');
   
   B1 = loadImage('Imagens/Botão - Novo Jogo.png');
   B2 = loadImage('Imagens/Botão - Configurações.png');
@@ -88,7 +90,7 @@ function setup() {
 function draw(){
   
   if (tela[0] == true){//Está no menu inicial
-    background("White");
+    background(imgFundo);
   
     //Botão 1
     image(B1, xBot, yBot, compBot, altBot);
