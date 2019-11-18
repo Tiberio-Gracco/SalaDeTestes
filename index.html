@@ -38,7 +38,7 @@ var i;
 var posicao = 0, tempoPos = 0;
 var velocAnim = 7;
 var x = 0, y = 0, estado, velocidade = 3, direcao = 0;
-var fase1 = 0;
+var fase1 = false;
 
 var frente = [];
 var direita = [];
@@ -107,7 +107,8 @@ function mouseClicked(){
     if (colisao(xBot, yBot, compBot, altBot, mouseX, mouseY, 1, 1) == true){
       telas[1] = true;
       telas[0] = false;
-      fase1 = 0;
+      
+      fase1 = true;
       PrimeiraFase();
     }
   
@@ -126,7 +127,7 @@ function mouseClicked(){
     }
   }
   
-  
+ /* 
   if (telas[1] == true){//Está na tela da primeira fase
     
     //Botão 4
@@ -136,6 +137,7 @@ function mouseClicked(){
       fase1 = 1;
       telaInicial();
     }
+  */
  }
   
  if (telas[2] == true){//Está na tela de Configurações
@@ -191,7 +193,7 @@ function colisao(xA, yA, compA, altA, xB, yB, compB, altB){
 
 
 function PrimeiraFase(){
- while (fase1 == 0){
+ while (fase1 == true){
   
   if (keyIsPressed == true)
     estado = key;
@@ -235,14 +237,14 @@ function PrimeiraFase(){
    
     if (posicao > 3)
       posicao = 0;
-  
+  /*
   //Botão 4
   fill ("black");
   rect (xBot4, yBot4, compBot4, altBot4, 10);
   fill ("white");
   textFont ("TimesNewRoman",15);
   text ("Voltar", xBot4 + 30 , yBot4 + 30);
-   
+  */
  }//While
 }//Primeira Fase
     
