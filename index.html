@@ -101,7 +101,6 @@ function telaInicial(){
 function draw(){
   
  if (fase1 == true){
-  background(chao);
   
   if (keyIsPressed == true)
     estado = key;
@@ -169,6 +168,7 @@ function mouseClicked(){
       telas[0] = false;
       
       fase1 = true;
+      background(chao);
     }
   
     //Botão 2 (CONFIGURAÇÕES)
