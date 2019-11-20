@@ -32,12 +32,12 @@ var agua=[];
 var tileSize=50;
 var chao = 552-tileSize;
 var pulando = false;
+    
 function preload(){
-agua[0]= loadImage('imagens/agua0.png');
-agua[1]= loadImage('imagens/agua1.png');
-agua[2]= loadImage('imagens/agua2.png');
-agua[3]= loadImage('imagens/agua3.png');
-agua[4]= loadImage('imagens/agua4.png');
+agua[0]= loadImage('Imagens/Direita0.png');
+agua[1]= loadImage('Imagens/Direita1.png');
+agua[2]= loadImage('Imagens/Direita2.png');
+agua[3]= loadImage('Imagens/Direita3.png');
 }
 function setup() {
   createCanvas(1700, 800);
@@ -59,7 +59,7 @@ function draw() {
         ellipse(j * tileSize, i * tileSize, tileSize, tileSize);
       }
       if (map[i][j] == 3) {
-      for(x=0;x<5;x++){
+      for(x=0;x<4;x++){
         image(agua[x]);
       }
       }
