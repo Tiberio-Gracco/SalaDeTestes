@@ -223,7 +223,6 @@ function mouseClicked(){
     //Botão 3 (SAIR)
     if (colisao(xBot3, yBot3, compBot3, altBot3, mouseX, mouseY, 1, 1) == true){
       tela = 2;
-      telaPreta();
     }
   }
   
@@ -239,7 +238,7 @@ function mouseClicked(){
     
     //Botão 5 (SIM)
     if (colisao(xBot5, yBot5, compBot5, altBot5, mouseX, mouseY, 1, 1) == true){
-      tela = "";      
+      tela = -1;      
       background("black");
     }
    
